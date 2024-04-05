@@ -18,35 +18,39 @@ public class ActivitePratiqueN2OrmJpaHIbernateSpringDataApplication implements C
 	}
 	@Override
 	public void run(String... args) throws Exception {
-		// Ajouter Produit
+		System.out.println("**********Add Products *********");
 //		productRepository.save(new Product(1,"Comp",4300,3));
 //		productRepository.save(new Product(2,"Comp",300,14));
 //		productRepository.save(new Product(3,"Comp",430,44));
-		productRepository.save(new Product(4,"MacBook",50000,2));
-		// Consulter tous les produits
+//		productRepository.save(new Product(4,"MacBook",50000,2));
+
+		System.out.println("**********Show the list of all products *********");
 		List<Product> products = productRepository.findAll();
 		products.forEach(product -> {
 			System.out.println(product.toString());
 		});
-		//	Consulter un produit
+
+		System.out.println("**********Search for A Product By ID *********");
 		Product product1=productRepository.findById(Long.valueOf(1)).get();
 		System.out.println(product1.getId());
 		System.out.println(product1.getName());
 		System.out.println(product1.getQuantity());
 
-		//	Chercher des produits
+		System.out.println("**********Search for A Product Method 1 *********");
 		List<Product> ProductsWithC = productRepository.findByNameContains("C");
 		ProductsWithC.forEach(product -> {
 			System.out.println("Product list : "+ product);
 		});
-		// Methode 2 Search :
+
+		System.out.println("**********Search for A Product Method 2 *********");
 		List<Product> ProductsWithC2 = productRepository.search("%C%");
-		//  Mettre à jour un produit
-// Update a product (assuming the user provides the new product details)
-		Long productIdToUpdate = 1L; // Replace with the actual product ID
+
+		System.out.println("**********Product Update*********");
+		Long productIdToUpdate = 1L;
 		Product productToUpdate = productRepository.findById(productIdToUpdate).get();
 
-// Modify product details (example: change name and price)
+		System.out.println("**********Product Modification*********");
+
 		productToUpdate.setName("Phone");
 		productToUpdate.setPrice(5500);
 
@@ -56,7 +60,7 @@ public class ActivitePratiqueN2OrmJpaHIbernateSpringDataApplication implements C
 			System.out.println(product.toString());
 		});
 
-		// supprimer un produit
+		System.out.println("**********Product Deletion*********");
 		Long productIdToDelete = 4L;
 		productRepository.deleteById(productIdToDelete);
 		System.out.println("Product with ID " + productIdToDelete + " deleted successfully!");
