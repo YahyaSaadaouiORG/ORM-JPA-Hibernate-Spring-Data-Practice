@@ -23,31 +23,56 @@ public class ActivitePratiqueN2OrmJpaHIbernateSpringDataApplication implements C
 //		productRepository.save(new Product(2,"Comp",300,14));
 //		productRepository.save(new Product(3,"Comp",430,44));
 //		productRepository.save(new Product(4,"MacBook",50000,2));
+		System.out.println("All Products are added Successfully");
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
 		System.out.println("**********Show the list of all products *********");
 		List<Product> products = productRepository.findAll();
 		products.forEach(product -> {
 			System.out.println(product.toString());
 		});
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
 		System.out.println("**********Search for A Product By ID *********");
 		Product product1=productRepository.findById(Long.valueOf(1)).get();
 		System.out.println(product1.getId());
 		System.out.println(product1.getName());
 		System.out.println(product1.getQuantity());
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
 		System.out.println("**********Search for A Product Method 1 *********");
 		List<Product> ProductsWithC = productRepository.findByNameContains("C");
 		ProductsWithC.forEach(product -> {
 			System.out.println("Product list : "+ product);
 		});
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
 		System.out.println("**********Search for A Product Method 2 *********");
 		List<Product> ProductsWithC2 = productRepository.search("%C%");
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
 		System.out.println("**********Product Update*********");
 		Long productIdToUpdate = 1L;
 		Product productToUpdate = productRepository.findById(productIdToUpdate).get();
+		System.out.println("Update Was Successful");
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
 		System.out.println("**********Product Modification*********");
 
@@ -59,6 +84,10 @@ public class ActivitePratiqueN2OrmJpaHIbernateSpringDataApplication implements C
 		products.forEach(product -> {
 			System.out.println(product.toString());
 		});
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
 
 		System.out.println("**********Product Deletion*********");
 		Long productIdToDelete = 4L;
